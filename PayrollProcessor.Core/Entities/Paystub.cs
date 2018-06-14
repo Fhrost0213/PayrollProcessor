@@ -4,12 +4,23 @@ namespace PayrollProcessor.Core.Entities
 {
     public class Paystub
     {
-        public Employee Employee { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public decimal TotalRegularHoursWorked { get; set; }
-        public decimal TotalOvertimeHoursWorked { get; set; }
-        public decimal TotalRegularPay { get; set; }
-        public decimal TotalOvertimePay { get; set; }
+        public Paystub(Employee employee, DateTime startDate, DateTime endDate, decimal totalRegularHoursWorked, decimal totalOvertimeHoursWorked, decimal totalRegularPay, decimal totalOvertimePay)
+        {
+            Employee = employee;
+            StartDate = startDate;
+            EndDate = endDate;
+            TotalRegularHoursWorked = totalRegularHoursWorked;
+            TotalOvertimeHoursWorked = totalOvertimeHoursWorked;
+            TotalRegularPay = totalRegularPay;
+            TotalOvertimePay = totalOvertimePay;
+        }
+        
+        public Employee Employee { get; }
+        public DateTime StartDate { get; }
+        public DateTime EndDate { get; }
+        public decimal TotalRegularHoursWorked { get; }
+        public decimal TotalOvertimeHoursWorked { get; }
+        public decimal TotalRegularPay { get; }
+        public decimal TotalOvertimePay { get; }
     }
 }
