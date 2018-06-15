@@ -2,27 +2,13 @@
 
 namespace PayrollProcessor.Core.Entities
 {
-    public class Timesheet
+    public class Timesheet : IEntity
     {
-        public DayOfWeek Day
-        {
-            get
-            {
-                return _date.DayOfWeek;
-            }
+        public int Id { get; set; }
 
-        }
-        private DateTime _date;
-
-        public DateTime Date
-        {
-            get { return _date; }
-            set { _date = value; }
-        }
+        public DateTime Date { get; set; }
 
         public decimal HoursWorked { get; set; }
-
-        public int Id { get; set; }
 
         public int EmployeeId { get; set; }
 

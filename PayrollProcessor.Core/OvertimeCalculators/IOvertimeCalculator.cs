@@ -1,8 +1,10 @@
-﻿namespace PayrollProcessor.Core.OvertimeCalculators
+﻿using System.Collections.Generic;
+using PayrollProcessor.Core.Entities;
+
+namespace PayrollProcessor.Core.OvertimeCalculators
 {
     public interface IOvertimeCalculator
     {
-        decimal OvertimeMultiplier { get; }
-        decimal CalculateOvertime(decimal timeWorked, decimal payRate);
+        PayDto CalculatePay(IEnumerable<Timesheet> timesheets, decimal payRate);
     }
 }

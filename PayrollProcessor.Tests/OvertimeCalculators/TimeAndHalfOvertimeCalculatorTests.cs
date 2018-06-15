@@ -1,50 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 using PayrollProcessor.Core.Entities;
 using PayrollProcessor.Core.OvertimeCalculators;
-using PayrollProcessor.Core.Paystub;
 
-namespace PayrollProcessor.Tests.Paystub
+namespace PayrollProcessor.Tests.OvertimeCalculators
 {
     [TestFixture]
-    public class PaystubCalculatorTests
+    public class TimeAndHalfOvertimeCalculatorTests
     {
         [Test]
-        public void PaystubCalculator_ShouldCalculate_OvertimeCorrectly()
+        public void TimeAndHalfOvertimeCalculator_ShouldCalculateOvertimeCorrectly()
         {
-            //Arrange
             var payRate = 100;
-            var sut = new PaystubCalculator(new TexasOvertimeCalculator(), payRate);
-            var paystub = new Core.Entities.Paystub();
+            var sut = new TimeAndHalfOvertimeCalculator();
             var timesheets = new List<Timesheet>();
 
             AddTimesheets(timesheets);
 
-            paystub.StartDate = DateTime.Parse("2018-06-04");
-            paystub.EndDate = DateTime.Parse("2018-06-17");
-
             //Act
-            sut.CalculatePaystub(paystub, timesheets);
+            var dto = sut.CalculatePay(timesheets, payRate);
 
             //Assert
-            Assert.AreEqual(paystub.TotalOvertimeHoursWorked, 8);
-            Assert.AreEqual(paystub.TotalOvertimePay, 1200);
-            Assert.AreEqual(paystub.TotalRegularHoursWorked, 64);
-            Assert.AreEqual(paystub.TotalRegularPay, 6400);
+            Assert.AreEqual(dto.OvertimeHoursWorked, 8);
+            Assert.AreEqual(dto.OvertimePay, 1200);
+            Assert.AreEqual(dto.RegularHoursWorked, 64);
+            Assert.AreEqual(dto.RegularPay, 6400);
         }
 
         private void AddTimesheets(ICollection<Timesheet> timesheets)
         {
             var timesheet = new Timesheet();
-            timesheet = new Timesheet
-            {
-                Id = 1,
-                EmployeeId = 1,
-                Date = DateTime.Parse("2018-06-06"),
-                HoursWorked = 12
-            };
-            timesheets.Add(timesheet);
 
             timesheet = new Timesheet
             {

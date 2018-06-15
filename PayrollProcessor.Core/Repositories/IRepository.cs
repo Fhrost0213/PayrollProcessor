@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using PayrollProcessor.Core.Entities;
 
 namespace PayrollProcessor.Core.Repositories
 {
-    public interface IRepository<T>
+    public interface IGetRepository
     {
-        T Get(int id);
+        IEntity Get(int id);
 
-        List<T> GetList(int id);
+        List<IEntity> GetList(int id);
     }
 }

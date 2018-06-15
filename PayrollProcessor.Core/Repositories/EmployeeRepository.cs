@@ -3,7 +3,7 @@ using PayrollProcessor.Core.Entities;
 
 namespace PayrollProcessor.Core.Repositories
 {
-    public class EmployeeRepository : IRepository<Employee>
+    public class EmployeeRepository
     {
         public Employee Get(int employeeId)
         {
@@ -11,7 +11,10 @@ namespace PayrollProcessor.Core.Repositories
             return new Employee
             {
                 Id = 1,
-                PayRate = 100
+                HourlyRate = 100,
+                FirstName = "John",
+                LastName = "Doe",
+                State = State.TX
             };
         }
 

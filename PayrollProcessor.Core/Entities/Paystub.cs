@@ -4,15 +4,15 @@ namespace PayrollProcessor.Core.Entities
 {
     public class Paystub
     {
-        public Paystub(Employee employee, DateTime startDate, DateTime endDate, decimal totalRegularHoursWorked, decimal totalOvertimeHoursWorked, decimal totalRegularPay, decimal totalOvertimePay)
+        public Paystub(Employee employee, DateTime startDate, DateTime endDate, PayDto dto)
         {
             Employee = employee;
             StartDate = startDate;
             EndDate = endDate;
-            TotalRegularHoursWorked = totalRegularHoursWorked;
-            TotalOvertimeHoursWorked = totalOvertimeHoursWorked;
-            TotalRegularPay = totalRegularPay;
-            TotalOvertimePay = totalOvertimePay;
+            TotalRegularHoursWorked = dto.RegularHoursWorked;
+            TotalOvertimeHoursWorked = dto.OvertimeHoursWorked;
+            TotalRegularPay = dto.RegularPay;
+            TotalOvertimePay = dto.OvertimePay;
         }
         
         public Employee Employee { get; }

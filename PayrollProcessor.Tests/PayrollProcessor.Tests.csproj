@@ -45,8 +45,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Paystub\PaystubCalculatorTests.cs" />
-    <Compile Include="Paystub\PaystubDateGetterTests.cs" />
+    <Compile Include="OvertimeCalculators\TimeAndHalfOvertimeCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +56,9 @@
       <Project>{184AA968-FB0F-47C9-AB81-D17CA9D45C21}</Project>
       <Name>PayrollProcessor.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Paystub\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
