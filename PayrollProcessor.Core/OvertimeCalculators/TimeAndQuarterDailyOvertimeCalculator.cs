@@ -4,35 +4,47 @@ using PayrollProcessor.Core.Entities;
 
 namespace PayrollProcessor.Core.OvertimeCalculators
 {
-    public class CaliforniaOvertimeCalculator : IOvertimeCalculator
+    public class TimeAndQuarterDailyOvertimeCalculator : IOvertimeCalculator
     {
         private readonly decimal _weeklyOvertimeMultiplier = (decimal)1.5;
+        private readonly decimal _dailyOvertimeMultiplier = (decimal)1.25;
 
-        // TODO: Implement this for California
         // This calculates for one week
         public PayDto CalculatePay(IEnumerable<Timesheet> timesheets, decimal payRate)
         {
-            decimal regularHoursWorked = 0;
-            decimal overtimeHoursWorked = 0;
-            decimal regularPay = 0;
-            decimal overtimePay = 0;
+            var timesheetList = timesheets.ToList();
 
-            var hoursWorked = timesheets.Sum(t => t.HoursWorked);
+            decimal regularHoursWorked;
+            decimal regularPay;
+            decimal overtimePay;
+            decimal overtimeHoursWorked = 0;
+            decimal dailyOvertimePay = 0;
+
+            foreach (var timesheet in timesheetList)
+            {
+                if (timesheet.HoursWorked <= 8) continue;
+                var overtimeHours = timesheet.HoursWorked - 8;
+                dailyOvertimePay += overtimeHours * (payRate * _dailyOvertimeMultiplier);
+                overtimeHoursWorked += overtimeHours;
+            }
+
+            var hoursWorked = timesheetList.Sum(t => t.HoursWorked);
 
             if (hoursWorked > 40)
             {
                 regularHoursWorked = 40;
-                overtimeHoursWorked = (hoursWorked - 40);
+                overtimeHoursWorked += (hoursWorked - 40);
                 regularPay = (40 * payRate);
                 overtimePay = (hoursWorked - 40) * (payRate * _weeklyOvertimeMultiplier);
             }
             else
             {
                 regularHoursWorked = hoursWorked;
-                overtimeHoursWorked = 0;
                 regularPay = (hoursWorked * payRate);
                 overtimePay = 0;
             }
+
+            overtimePay += dailyOvertimePay;
 
             return new PayDto(regularHoursWorked, overtimeHoursWorked, regularPay, overtimePay);
         }

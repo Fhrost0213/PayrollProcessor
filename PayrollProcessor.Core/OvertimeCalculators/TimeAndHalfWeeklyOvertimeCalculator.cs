@@ -4,7 +4,7 @@ using PayrollProcessor.Core.Entities;
 
 namespace PayrollProcessor.Core.OvertimeCalculators
 {
-    public class TimeAndHalfOvertimeCalculator : IOvertimeCalculator
+    public class TimeAndHalfWeeklyOvertimeCalculator : IOvertimeCalculator
     {
         private readonly decimal _weeklyOvertimeMultiplier = (decimal) 1.5;
 

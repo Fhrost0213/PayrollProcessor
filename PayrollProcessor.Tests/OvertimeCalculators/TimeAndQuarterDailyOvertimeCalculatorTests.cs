@@ -1,35 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 using PayrollProcessor.Core.Entities;
 using PayrollProcessor.Core.OvertimeCalculators;
 
 namespace PayrollProcessor.Tests.OvertimeCalculators
 {
     [TestFixture]
-    public class TimeAndHalfOvertimeCalculatorTests
+    public class TimeAndQuarterDailyOvertimeCalculatorTests
     {
         [Test]
-        public void TimeAndHalfOvertimeCalculator_ShouldCalculateOvertimeCorrectly()
+        public void TimeAndQuarterDailyOvertimeCalculator_ShouldCalculateOvertimeCorrectly()
         {
             var payRate = 100;
-            var sut = new TimeAndHalfOvertimeCalculator();
+            var sut = new TimeAndQuarterDailyOvertimeCalculator();
             var timesheets = new List<Timesheet>();
 
             AddTimesheets(timesheets);
-
+            
             //Act
             var dto = sut.CalculatePay(timesheets, payRate);
 
             //Assert
-            Assert.AreEqual(dto.OvertimeHoursWorked, 8);
-            Assert.AreEqual(dto.OvertimePay, 1200);
-            Assert.AreEqual(dto.RegularHoursWorked, 64);
-            Assert.AreEqual(dto.RegularPay, 6400);
+            Assert.AreEqual(dto.OvertimeHoursWorked, 40);
+            Assert.AreEqual(dto.OvertimePay, 5500);
+            Assert.AreEqual(dto.RegularHoursWorked, 40);
+            Assert.AreEqual(dto.RegularPay, 4000);
         }
 
         private void AddTimesheets(ICollection<Timesheet> timesheets)
@@ -40,7 +36,7 @@ namespace PayrollProcessor.Tests.OvertimeCalculators
             {
                 Id = 1,
                 EmployeeId = 1,
-                Date = DateTime.Parse("2018-06-09"),
+                Date = DateTime.Parse("2018-06-10"),
                 HoursWorked = 12
             };
             timesheets.Add(timesheet);

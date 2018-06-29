@@ -9,9 +9,9 @@ namespace PayrollProcessor.Core
             switch (employeeState)
             {
                 case State.CA:
-                    return new TimeAndHalfOvertimeCalculator();
+                    return new TimeAndHalfWeeklyOvertimeCalculator();
                 default:
-                    return new TimeAndHalfOvertimeCalculator();
+                    return new TimeAndHalfWeeklyOvertimeCalculator();
             }
         }
     }

@@ -14,9 +14,9 @@
 repo.GetWorksheetsForLastTwoWeeks()
 Call calculator
 
-9. Get rid of IWorkweek
+9. Get rid of IWorkweek -- DONE
 
-10 - Implement California 
+10 - Implement California -- DONE
 	- Anything over 40 hours gets 1.5 multiplier
 	- Anything over 8 hours a day 1.25
 	
@@ -24,7 +24,7 @@ Call calculator
 
 CaliforniaCalculator.CalculatePay(IEnumerable<Timesheets>, BasePay) : ICalc
 
-Call factory to get back correct calculator
+Call factory to get back correct calculator -- DONE
 - Pass in Texas and get TimeAndOffCalculator()
 
 - Build UI (dont care much about this) but add:

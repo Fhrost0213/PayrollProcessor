@@ -45,7 +45,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OvertimeCalculators\TimeAndHalfOvertimeCalculatorTests.cs" />
+    <Compile Include="OvertimeCalculators\TimeAndHalfWeeklyOvertimeCalculatorTests.cs" />
+    <Compile Include="OvertimeCalculators\TimeAndQuarterDailyOvertimeCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
