@@ -4,13 +4,8 @@ using PayrollProcessor.Core.Entities;
 
 namespace PayrollProcessor.Core.Repositories
 {
-    public class TimesheetRepository
+    public class TimesheetRepository : ITimesheetGetRepository
     {
-        public Timesheet Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Timesheet> GetTimesheetsForLastTwoWeeks(DateTime date)
         {
             // TODO: Add implementation

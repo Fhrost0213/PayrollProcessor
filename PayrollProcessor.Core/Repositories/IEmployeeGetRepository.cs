@@ -3,10 +3,9 @@ using PayrollProcessor.Core.Entities;
 
 namespace PayrollProcessor.Core.Repositories
 {
-    public interface IGetRepository
+    public interface IEmployeeGetRepository
     {
-        IEntity Get(int id);
-
-        List<IEntity> GetList(int id);
+        Employee Get(int employeeId);
+        List<Employee> GetList(int id);
     }
 }

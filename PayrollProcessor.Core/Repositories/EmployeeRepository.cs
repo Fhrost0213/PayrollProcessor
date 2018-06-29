@@ -3,7 +3,7 @@ using PayrollProcessor.Core.Entities;
 
 namespace PayrollProcessor.Core.Repositories
 {
-    public class EmployeeRepository
+    public class EmployeeRepository : IEmployeeGetRepository
     {
         public Employee Get(int employeeId)
         {

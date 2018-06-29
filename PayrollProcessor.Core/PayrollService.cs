@@ -9,10 +9,10 @@ namespace PayrollProcessor.Core
 {
     public class PayrollService
     {
-        private readonly TimesheetRepository _timesheetRepository;
-        private readonly EmployeeRepository _employeeRepository;
+        private readonly ITimesheetGetRepository _timesheetRepository;
+        private readonly IEmployeeGetRepository _employeeRepository;
 
-        public PayrollService(TimesheetRepository timesheetRepository, EmployeeRepository employeeRepository)
+        public PayrollService(ITimesheetGetRepository timesheetRepository, IEmployeeGetRepository employeeRepository)
         {
             _timesheetRepository = timesheetRepository;
             _employeeRepository = employeeRepository;
@@ -40,13 +40,13 @@ namespace PayrollProcessor.Core
 
                 var secondWeekTimesheets = employeesTimesheets
                     .Select(t => t)
-                    .Where(d => d.Date >= date.AddDays(-13) && d.Date <= date.AddDays(7));
+                    .Where(d => d.Date >= date.AddDays(-13) && d.Date <= date.AddDays(-7));
 
                 var firstDto = calculator.CalculatePay(firstWeekTimesheets.Select(t => t), employeePayRate);
                 var secondDto = calculator.CalculatePay(secondWeekTimesheets.Select(t => t), employeePayRate);
                 var dto = new PayDto(firstDto.RegularHoursWorked + secondDto.RegularHoursWorked, firstDto.OvertimeHoursWorked + secondDto.OvertimeHoursWorked, firstDto.RegularPay + secondDto.RegularPay, firstDto.OvertimePay + secondDto.OvertimePay);
 
-                var paystub = new Paystub(employee, date.AddDays(-6), date, dto);
+                var paystub = new Paystub(employee, date.AddDays(-13), date, dto);
                 paystubs.Add(paystub);
             }
 
