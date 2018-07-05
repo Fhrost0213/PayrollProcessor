@@ -4,7 +4,7 @@
 	crud operations for each client to not consume more than needed
 4. Don't filter out in retriever, this will be handled by 
 	whats given from DB based upon what we ask.
-5. Need to change overtime calcs. Hours changes as well as mulitpliers.
+5. Need to change overtime calcs. Hours changes as well as mulitpliers. -- DONE
 6. Helpers/Managers/Utilities - do these know what theyre doing?
 
 7. "Here's my last day, give my last 2 weeks of pay" 
@@ -33,5 +33,5 @@ Call factory to get back correct calculator -- DONE
 Anytime you get/update pay rate for employee it needs to be logged! (UI side)
 -	 Current user logs it: Bryan at this time.
 
-For caching - dont worry about concurrency or anything, just a simple Cache.
+For caching - dont worry about concurrency or anything, just a simple Cache. -- DONE
 	- Add decator for this

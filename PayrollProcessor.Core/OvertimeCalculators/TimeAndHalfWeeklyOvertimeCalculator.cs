@@ -6,15 +6,15 @@ namespace PayrollProcessor.Core.OvertimeCalculators
 {
     public class TimeAndHalfWeeklyOvertimeCalculator : IOvertimeCalculator
     {
-        private readonly decimal _weeklyOvertimeMultiplier = (decimal) 1.5;
+        private const decimal _weeklyOvertimeMultiplier = (decimal) 1.5;
 
         // This calculates for one week
         public PayDto CalculatePay(IEnumerable<Timesheet> timesheets, decimal payRate)
         {
-            decimal regularHoursWorked = 0;
-            decimal overtimeHoursWorked = 0;
-            decimal regularPay = 0;
-            decimal overtimePay = 0;
+            decimal regularHoursWorked;
+            decimal overtimeHoursWorked;
+            decimal regularPay;
+            decimal overtimePay;
 
             var hoursWorked = timesheets.Sum(t => t.HoursWorked);
 

@@ -6,8 +6,8 @@ namespace PayrollProcessor.Core.OvertimeCalculators
 {
     public class TimeAndQuarterDailyOvertimeCalculator : IOvertimeCalculator
     {
-        private readonly decimal _weeklyOvertimeMultiplier = (decimal)1.5;
-        private readonly decimal _dailyOvertimeMultiplier = (decimal)1.25;
+        private const decimal _weeklyOvertimeMultiplier = (decimal) 1.5;
+        private const decimal _dailyOvertimeMultiplier = (decimal) 1.25;
 
         // This calculates for one week
         public PayDto CalculatePay(IEnumerable<Timesheet> timesheets, decimal payRate)
