@@ -1,6 +1,4 @@
-﻿using System.Data;
-
-namespace PayrollProcessor.Core.Entities
+﻿namespace PayrollProcessor.Core.Entities
 {
     public class Employee : IEntity
     {

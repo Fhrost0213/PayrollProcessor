@@ -12,16 +12,17 @@ namespace PayrollProcessor.Tests.OvertimeCalculators
         [Test]
         public void TimeAndHalfOvertimeCalculator_ShouldCalculateOvertimeCorrectly()
         {
+            // Arrange
             var payRate = 100;
             var sut = new TimeAndHalfWeeklyOvertimeCalculator();
             var timesheets = new List<Timesheet>();
 
             AddTimesheets(timesheets);
 
-            //Act
+            // Act
             var dto = sut.CalculatePay(timesheets, payRate);
 
-            //Assert
+            // Assert
             Assert.AreEqual(dto.OvertimeHoursWorked, 20);
             Assert.AreEqual(dto.OvertimePay, 3000);
             Assert.AreEqual(dto.RegularHoursWorked, 40);

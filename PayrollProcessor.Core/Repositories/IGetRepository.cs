@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using PayrollProcessor.Core.Entities;
+﻿using PayrollProcessor.Core.Entities;
 
 namespace PayrollProcessor.Core.Repositories
 {

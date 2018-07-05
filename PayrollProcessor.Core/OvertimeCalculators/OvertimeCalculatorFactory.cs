@@ -1,6 +1,4 @@
-﻿using PayrollProcessor.Core.OvertimeCalculators;
-
-namespace PayrollProcessor.Core
+﻿namespace PayrollProcessor.Core.OvertimeCalculators
 {
     public class OvertimeCalculatorFactory
     {

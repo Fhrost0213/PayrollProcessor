@@ -5,8 +5,8 @@ namespace PayrollProcessor.Core.Repositories.Decorators
 {
     public class CacheRepositoryDecorator : IGetRepository
     {
-        private IGetRepository _repo;
-        private Dictionary<int, IEntity> _cache;
+        private readonly IGetRepository _repo;
+        private readonly Dictionary<int, IEntity> _cache;
 
         public CacheRepositoryDecorator(IGetRepository repo)
         {
