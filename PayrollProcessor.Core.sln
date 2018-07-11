@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayrollProcessor.Core", "Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollProcessor.Tests", "PayrollProcessor.Tests\PayrollProcessor.Tests.csproj", "{A91B4DE2-DDC6-4706-8BB7-3E46B6E8B42B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollProcessor.Web", "PayrollProcessor.Web\PayrollProcessor.Web.csproj", "{1FB4D80B-95F4-4A6B-8D07-44A87B8238F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollProcessor.Web.Tests", "PayrollProcessor.Web.Tests\PayrollProcessor.Web.Tests.csproj", "{95E1071C-DADD-45CD-810A-8AE59B830344}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{A91B4DE2-DDC6-4706-8BB7-3E46B6E8B42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A91B4DE2-DDC6-4706-8BB7-3E46B6E8B42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A91B4DE2-DDC6-4706-8BB7-3E46B6E8B42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FB4D80B-95F4-4A6B-8D07-44A87B8238F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FB4D80B-95F4-4A6B-8D07-44A87B8238F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FB4D80B-95F4-4A6B-8D07-44A87B8238F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FB4D80B-95F4-4A6B-8D07-44A87B8238F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E1071C-DADD-45CD-810A-8AE59B830344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E1071C-DADD-45CD-810A-8AE59B830344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E1071C-DADD-45CD-810A-8AE59B830344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E1071C-DADD-45CD-810A-8AE59B830344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

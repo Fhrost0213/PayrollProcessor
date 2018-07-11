@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using PayrollProcessor.Core.Entities;
+using PayrollProcessor.Core.OvertimeCalculators;
 using PayrollProcessor.Core.Repositories;
 
 namespace PayrollProcessor.Core
