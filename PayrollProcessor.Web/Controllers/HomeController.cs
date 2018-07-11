@@ -13,38 +13,21 @@ namespace PayrollProcessor.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View(new IndexModel());
+            return View(new PaystubModel());
         }
 
         [HttpPost]
-        public ActionResult GetPaystubs(IndexModel model)
+        public ActionResult GetPaystubs(PaystubModel model)
         {
             if (ModelState.IsValid)
             {
-                ViewData["Paystubs"] = GetPaystubs(model.Date);
+                ViewData["Paystubs"] = model.GetPaystubs(model.Date);
 
                 //ViewData["EmployeeName"] = employee.FirstName + " " + employee.LastName;
                 //ViewData["Date"] = date;
             }
 
             return View("Index", model);
-        }
-
-       
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        private List<Paystub> GetPaystubs(DateTime date)
-        {
-            var timesheetRepo = new TimesheetRepository();
-            var employeeRepo = new EmployeeRepository();
-
-            var service = new Core.PayrollService(timesheetRepo, employeeRepo);
-            return service.GetPaystubs(date); 
         }
     }
 }
