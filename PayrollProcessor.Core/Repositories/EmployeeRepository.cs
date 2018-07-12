@@ -5,19 +5,6 @@ namespace PayrollProcessor.Core.Repositories
 {
     public class EmployeeRepository : IEmployeeGetRepository
     {
-        IEntity IGetRepository.Get(int employeeId)
-        {
-            // Add implementation
-            return new Employee
-            {
-                Id = 1,
-                HourlyRate = 100,
-                FirstName = "John",
-                LastName = "Doe",
-                State = State.TX
-            };
-        }
-
         public Employee Get(int employeeId)
         {
             // Add implementation

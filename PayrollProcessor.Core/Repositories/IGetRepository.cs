@@ -4,6 +4,6 @@ namespace PayrollProcessor.Core.Repositories
 {
     public interface IGetRepository
     {
-        IEntity Get(int objectId);
+        T Get<T>(int objectId);
     }
 }

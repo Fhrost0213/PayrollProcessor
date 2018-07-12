@@ -6,17 +6,6 @@ namespace PayrollProcessor.Core.Repositories
 {
     public class TimesheetRepository : ITimesheetGetRepository
     {
-        IEntity IGetRepository.Get(int timesheetId)
-        {
-            return new Timesheet
-            {
-                Id = 1,
-                EmployeeId = 1,
-                Date = DateTime.Parse("2018-06-06"),
-                HoursWorked = 12
-            };
-        }
-
         public List<Timesheet> GetTimesheetsForLastTwoWeeks(DateTime date)
         {
             // TODO: Add implementation

@@ -4,7 +4,7 @@ using PayrollProcessor.Core.Entities;
 
 namespace PayrollProcessor.Core.Repositories
 {
-    public interface ITimesheetGetRepository : IGetRepository
+    public interface ITimesheetGetRepository
     {
         List<Timesheet> GetTimesheetsForLastTwoWeeks(DateTime date);
     }

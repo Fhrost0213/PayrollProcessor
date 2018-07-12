@@ -7,7 +7,7 @@
             switch (employeeState)
             {
                 case State.CA:
-                    return new TimeAndHalfWeeklyOvertimeCalculator();
+                    return new TimeAndQuarterDailyOvertimeCalculator();
                 default:
                     return new TimeAndHalfWeeklyOvertimeCalculator();
             }
