@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using PayrollProcessor.Core.Entities;
+using StructureMap.Query;
 
 namespace PayrollProcessor.Core.OvertimeCalculators
 {
@@ -20,6 +23,24 @@ namespace PayrollProcessor.Core.OvertimeCalculators
             decimal overtimeHoursWorked = 0;
             decimal dailyOvertimePay = 0;
 
+            const decimal ceilingForDailyRegularTime = 8;
+
+            var dailyHourBreakdown = timesheetList.Select(x =>
+            {
+                var regularHours = x.HoursWorked <= ceilingForDailyRegularTime ? x.HoursWorked : ceilingForDailyRegularTime;
+               
+                var otHours = x.HoursWorked > ceilingForDailyRegularTime ? x.HoursWorked - ceilingForDailyRegularTime : 0;
+
+                return Tuple.Create(regularHours, otHours);
+            });
+
+            var dailyRegular = dailyHourBreakdown.Select(x => x.Item1 * payRate);
+            var dailyOT = dailyHourBreakdown.Select(x => x.Item2 * payRate * 1.5m);
+
+            var regularHours1 = timesheetList
+                .Where(x => x.HoursWorked <= 8)
+                .Select(x => x.HoursWorked * payRate);
+
             foreach (var timesheet in timesheetList)
             {
                 if (timesheet.HoursWorked <= 8) continue;
@@ -35,7 +56,7 @@ namespace PayrollProcessor.Core.OvertimeCalculators
                 regularHoursWorked = 40;
                 overtimeHoursWorked += (hoursWorked - 40);
                 regularPay = (40 * payRate);
-                overtimePay = (hoursWorked - 40) * (payRate * _weeklyOvertimeMultiplier);
+                overtimePay = overtimeHoursWorked * (payRate * _weeklyOvertimeMultiplier);
             }
             else
             {
